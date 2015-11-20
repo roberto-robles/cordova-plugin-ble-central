@@ -37,7 +37,8 @@
     [super pluginInitialize];
 
     peripherals = [NSMutableSet set];
-    manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], CBCentralManagerOptionShowPowerAlertKey, nil];
+    manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil options:options];
 
     connectCallbacks = [NSMutableDictionary new];
     connectCallbackLatches = [NSMutableDictionary new];
